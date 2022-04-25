@@ -8,22 +8,21 @@ notes.get('/', (req, res) => {
   console.info(`${req.method} request received for notes`);
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
-
 // POST Route for a new notes
 
-notes.post('/', (req, res) => {
+notes.post('/notes', (req, res) => {
   console.info(`${req.method} request received to add a notes`);
 
   const { title, text } = req.body;
 
-  if (titel && text) {
+  if (title && text) {
     const newNote= {
       title,
       text,
       tip_id: uuid(),
     };
 
-readAndAppend(newNote, '.db.db.json');
+readAndAppend(newNote, './db.db.json');
 res.json('Note added successfully');
   }
   else{
