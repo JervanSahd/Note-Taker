@@ -34,12 +34,12 @@ res.json('Note added successfully');
 );
 
 // GET Route for homepage
-app.get('/', (req, res) =>
+notes.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 // Wildcard route to direct users to the home page
-app.get('*', (req, res) =>
+notes.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, 'public/pages/index.html'))
 );
 
